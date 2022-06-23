@@ -1,0 +1,27 @@
+[package]
+name = "opendac"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libtock = {git = "https://github.com/tock/libtock-rs/"}
+
+[[bin]]
+name = "audio"
+path = "src/audio/bin/main.rs"
+
+[[bin]]
+name = "ui"
+path = "src/ui/bin/main.rs"
+
+[[bin]]
+name = "ble"
+path = "src/ble/bin/main.rs"
+
+[workspace]
+exclude = ["tock"]
+members = [
+    "runner",
+]
