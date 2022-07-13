@@ -12,9 +12,10 @@ release=--release
 endif
 
 .PHONY: setup
-setup: cargo install elf2tab
-	cargo install stack-sizes
-	cargo miri setup
+setup: 
+	cargo install elf2tab
+	rustup +nightly component add miri
+	cargo +nightly miri setup
 	rustup target add --toolchain stable thumbv7em-none-eabi
 
 # Prints out the sizes of the example binaries.
